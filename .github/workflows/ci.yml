@@ -25,6 +25,5 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
 
-      # Nếu bạn có project test thì bật (còn không thì vẫn OK)
       - name: Test
         run: dotnet test -c Release --no-build --verbosity normal
