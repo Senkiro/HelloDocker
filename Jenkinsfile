@@ -27,10 +27,8 @@ pipeline {
     stage('Deploy local') {
       steps {
         sh '''
-          docker stop ${CONTAINER} || true
-          docker rm ${CONTAINER} || true
-          docker run -d --restart unless-stopped --name ${CONTAINER} ${IMAGE}:latest
-          docker ps --filter "name=${CONTAINER}"
+          docker rm -f hello_docker || true
+          docker run --rm --name hello_docker hello_docker:latest
         '''
       }
     }
